@@ -1,17 +1,19 @@
 #pragma once
-
-class Manager
-{
-    static unsigned int id;
-    unsigned int _id{0};
-public:
-    Manager();
-
-};
-
-
+#include "manager.h"
 
 class Employee
 {
-
+    bool _work{false};
+    Manager::Task _task;
+public:
+  
+    bool isWork()
+    {
+        return _work;
+    }
+    void setTask(bool work, Manager::Task task)
+    {
+        _task = task;
+        _work = true;
+    }
 };
