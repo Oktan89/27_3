@@ -17,11 +17,12 @@ private:
     unsigned int _id{0};
     std::vector<Employee*> _team;
     int taskSize{0};
+    unsigned int availableEmployees{0};
 public:
     Manager();
     ~Manager();
     void addEmployee();
     void addTaskSize(unsigned int directive);
-    void distributionOfTask();
+    unsigned int distributionOfTask();
 
 };

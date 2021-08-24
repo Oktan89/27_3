@@ -20,14 +20,21 @@ int main()
             man->addEmployee();
         manager.push_back(man);
     }
-    std::cout<<"Enter Company Director's Directive: ";
-    unsigned int dir;
-    std::cin >> dir;
-    for(auto work : manager)
+    unsigned int awork;
+    do
     {
-        work->addTaskSize(dir);
-        work->distributionOfTask();
-    }
-        
+        std::cout << "Enter Company Director's Directive: ";
+        unsigned int dir;
+        std::cin >> dir;
+        awork = 0;
+        for (auto work : manager)
+        {
+            work->addTaskSize(dir);
+            awork += work->distributionOfTask();
+        }
+    } while (awork != 0);
+
+    for(auto work : manager)
+        delete work;    
     return 0;
 }
