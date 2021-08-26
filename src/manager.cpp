@@ -10,10 +10,11 @@ Manager::Manager()
    _id = id++;
 }
 
-void Manager::addEmployee()
+Employee* Manager::addEmployee()
 {
    Employee * emp = new Employee;
    _team.push_back(emp);
+   return emp;
 }
 
 Manager::~Manager()
@@ -43,6 +44,7 @@ unsigned int Manager::distributionOfTask()
           _team[j]->setTask(true, static_cast<Manager::Task>(std::rand()%3));
           ++availableEmployees;
           ++i;
+          _team[j]->getTask(_id);
       }     
    }
    return availableEmployees;

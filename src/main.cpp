@@ -2,26 +2,28 @@
 #include <vector>
 #include "boss.h"
 #include "manager.h"
+#include "employee.h"
 
 
 int main()
 {
-    std::vector<Manager *> manager;
     Boss boss;
     std::cout << "Enter number of teams: ";
     int sizeTeams;
     std::cin >> sizeTeams;
-    manager = boss.addManager(sizeTeams);
+    auto col = boss.addManager(sizeTeams);
     
-    /*for (int i = 0; i < sizeTeams; ++i)
+    for(auto i = 0; i < col; ++i)
     {
-        Manager *man = new Manager;
         std::cout << "Enter number of employee for teams # " << i << ":";
         int sizeEmployee;
         std::cin >> sizeEmployee;
-        for (int j = 0; j < sizeEmployee; ++j)
-            man->addEmployee();
-        manager.push_back(man);
+        for(int j = 0; j < sizeEmployee; ++j)
+        {
+            auto empl = boss.addAnEmployeeToAManager(i);
+            empl->setName("Worker "+ std::to_string(j));
+        }
+            
     }
     unsigned int awork;
     do
@@ -30,14 +32,9 @@ int main()
         unsigned int dir;
         std::cin >> dir;
         awork = 0;
-        for (auto work : manager)
-        {
-            work->addTaskSize(dir);
-            awork += work->distributionOfTask();
-        }
+        awork = boss.setDirectorsDerective(dir);
     } while (awork != 0);
 
-    for(auto work : manager)
-        delete work;    */
+
     return 0;
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <ostream>
 
 class Employee;
 
@@ -21,7 +22,7 @@ private:
 public:
     Manager();
     ~Manager();
-    void addEmployee();
+    Employee* addEmployee();
     void addTaskSize(unsigned int directive);
     unsigned int distributionOfTask();
 
