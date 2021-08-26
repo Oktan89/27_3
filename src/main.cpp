@@ -1,16 +1,19 @@
 #include <iostream>
 #include <vector>
+#include "boss.h"
 #include "manager.h"
 
 
 int main()
 {
-    int sizeTeams{0};
-    std::cout << "Enter number of teams: ";
-    std::cin >> sizeTeams;
     std::vector<Manager *> manager;
-
-    for (int i = 0; i < sizeTeams; ++i)
+    Boss boss;
+    std::cout << "Enter number of teams: ";
+    int sizeTeams;
+    std::cin >> sizeTeams;
+    manager = boss.addManager(sizeTeams);
+    
+    /*for (int i = 0; i < sizeTeams; ++i)
     {
         Manager *man = new Manager;
         std::cout << "Enter number of employee for teams # " << i << ":";
@@ -35,6 +38,6 @@ int main()
     } while (awork != 0);
 
     for(auto work : manager)
-        delete work;    
+        delete work;    */
     return 0;
 }
