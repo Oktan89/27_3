@@ -31,7 +31,6 @@ int main()
         std::cout << "Enter Company Director's Directive: ";
         unsigned int dir;
         std::cin >> dir;
-        awork = 0;
         awork = boss.setDirectorsDerective(dir);
     } while (awork != 0);
 
